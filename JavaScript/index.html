@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn JavaScript</title>
+    <link rel="stylesheet" href="main.css">
+    <style>
+        .title{
+            margin: auto; text-align: center; width: 210px;
+        }
+        input[type="button"]{
+            background-color: black; color: aliceblue; width: 100%;
+        }
+        input[type="text"]{
+            background-color: aliceblue; width: 100%;
+        }
+        table{
+            margin: auto; font-size: 15px; height: 200px;
+        }
+        .container{
+            margin: auto; text-align: center;
+        }
+    </style>
+
+</head>
+<body>
+   
+    <div class="container">
+        <h1>Hello My friend Today we will create some basic projects in JavaScript.</h1>
+        <button><a href="/home/sudh/Aakash/MY PROJECTS/DJANGO PROJECTS/CJ/manage.py">Go To Real website</a></button>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Nam quia nulla accusantium perspiciatis inventore voluptatem 
+            consequuntur mollitia eaque ut voluptates, totam natus velit adipisci labore vel dicta sed perferendis omnis?</p>
+    </div>
+    <hr>
+    <div style="text-align: center; padding: 5px; margin: auto; ">
+        <h1>Bulb On and Off</h1><p>JavaScript can change HTML attribute values.</p>
+
+        <p>In this case JavaScript changes the value of the src (source) attribute of an image.</p>
+        
+        <button onclick="document.getElementById('myImage').src='pic_bulbon.gif'">Turn on the light</button>        
+        <img id="myImage" src="pic_bulboff.gif" style="width:100px">        
+        <button onclick="document.getElementById('myImage').src='pic_bulboff.gif'">Turn off the light</button>    
+    </div>
+    <hr><br><br>
+    <div>
+        <h1 class="title"> Calculator</h1>
+        <table border="10px">
+            <tr>
+              <td colspan="3"><input type="text" id="result" ></th>
+              <th> <input type="button" value="C" onclick="clr()"></th>
+            </tr>
+            
+            <tr>
+              <th><input type="button" value="1" onclick="display('1')"></th>
+              <th><input type="button" value="2" onclick="display('2')"></th>
+              <th><input type="button" value="3" onclick="display('3')"></th>
+              <th><input type="button" value="/" onclick="display('/')"></th>
+            </tr>
+        
+            <tr>
+              <th><input type="button" value="4" onclick="display('4')"></th>
+              <th><input type="button" value="5" onclick="display('5')"></th>
+              <th><input type="button" value="6" onclick="display('6')"></th>
+              <th><input type="button" value="-" onclick="display('-')"></th>
+            </tr>
+        
+            <tr>
+              <th><input type="button" value="7" onclick="display('7')"></th>
+              <th><input type="button" value="8" onclick="display('8')"></th>
+              <th><input type="button" value="9" onclick="display('9')"></th>
+              <th><input type="button" value="+" onclick="display('+')"></th>
+            </tr>
+        
+            <tr>
+              <th><input type="button" value="." onclick="display('.')"></th>
+              <th><input type="button" value="0" onclick="display('0')"></th>
+              <th><input type="button" value="=" onclick="equate('=')"></th>
+              <th><input type="button" value="*" onclick="display('*')"></th>
+            </tr>
+        </table>
+    </div>
+   
+<!-- Calculator Script -->
+  <script type="text/javascript">
+    function clr(){
+      document.getElementById("result").value = "";
+
+    }
+
+    function display(val){
+      document.getElementById("result").value+=val;
+
+
+    }
+
+    function equate(){
+      let x = document.getElementById("result").value;
+      let y = eval(x);
+      document.getElementById("result").value = y;
+
+    }
+  </script>
+  
+  <!-- TO DO LIST
+    <div>
+        <h1 class="title" >To Do List</h1>
+        <div>
+            <input type="text" placeholder="Title...">
+            <span onclick="newElement()" class="addBtn">Add</span>
+        </div>
+        <ul>
+            <li style="color:rgb(255, 255, 255); background-color:rgba(0, 0, 0, 0.959);border:2px solid DodgerBlue; margin: 5px;">Hit the gym<span class="close">×</span></li>
+            <li style="color:rgb(247, 245, 244); background-color:rgba(0, 0, 0, 0.959);border:2px solid Violet;margin: 5px;">Pay bills<span class="close" >×</span></li>
+            <li style="color:rgb(241, 240, 239);background-color:rgba(0, 0, 0, 0.959);border:2px solid DodgerBlue;margin: 5px;">Meet George<span class="close">×</span></li>
+            <li style="color:rgb(74, 71, 255);background-color:rgba(0, 0, 0, 0.959);border:2px solid Violet;margin: 6px;"> Buy eggs<span class="close">×</span></li>
+            <li style="color:rgb(71, 255, 111);background-color:rgba(0, 0, 0, 0.959);border:2px solid DodgerBlue;margin: 5px;">Read a book<span class="close">×</span></li>
+            <li style="color:Tomato;background-color:rgba(0, 0, 0, 0.959);border:2px solid Violet;margin: 4px;">Organize office<span class="close">×</span></li>
+          </ul>
+    </div> --><br><br>
+    <hr>
+    <div>
+        <header>
+            <h1>Task List</h1>
+            <form id="new-task-form">
+                <input type="text" id="new-task-input" placeholder="What do you have planned?"/>
+                <input type="submit" id ="new-task-submit" value="Add task"/>
+            </form>
+        </header>
+        <main>
+            <section class="task-list">
+                <h2>Tasks</h2>
+                <div id="tasks">
+                    <!-- <div class="task">
+                        <div class="content">
+                            <input type="text" class="text" value="My shiny task" readonly/>
+                        </div> 
+                        <div class="action">
+                            <button class="edit">Edit</button>
+                            <button class="delete">Delete</button>
+                        </div>
+                    </div> -->
+                </div>
+               
+            </section>
+        </main>
+        <script src="main.js"></script>
+    </div>
+
+
+<p><a href="mailto:someone@example.com" style=" background-color: #f44336;color: white;padding: 15px 25px;text-align: center;text-decoration: none;display: inline-block;
+    background-color: red;">Send email if any query</a></p>
+
+    <br><hr><hr>
+    <!-- <div style="background-color: green;">
+        <h1>Survey form</h1>
+        <form>
+            <div>
+                <label> Name </label>
+                <label><input type="text" placeholder="Enter your Name"/></label>    
+            </div>
+
+            <div>
+                <label> Email </label>
+                <label><input type="text" placeholder="example@gmail.com"/></label>    
+            </div>
+
+            <div>
+                <label> Age </label>
+                <label><input type="text" placeholder="Enter your Age"/></label>    
+            </div>
+
+            <div>
+                <label> Whic option best describe you? </label>
+                <select name="role" id="role">
+                    <option value="student">Student</option>
+                    <option value="intern">Intern</option>
+                    <option value="professional">Professional</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div>
+                <label>  Would you recommend this website to a friend? </label><br>
+                    //Input Type Radio Button
+                    
+                    <input type="radio" value="Yes" id="Yes" name="feedback">
+                    <label for="Yes">Yes</label><br>
+                    <input type="radio" value="No" name="feedback">
+                    <label for="No">No</label><br>
+                    <input type="radio" value="Maybe" name="feedback">
+                    <label for="Maybe">Maybe</label>
+                    
+            </div>
+                 
+            <button type="submit" style="color: primary;">Submit</button>
+        </form>
+        
+    </div> -->
+
+</body>
+</html>

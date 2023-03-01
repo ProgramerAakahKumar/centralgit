@@ -1,0 +1,226 @@
+{% comment %} {% extends 'base.html' %}
+
+{% block title %} Sign In {% endblock title %}
+
+{% block body %}
+    <div style=" background-color: #53d769;border: 15px solid #f39870;text-align:center;   margin: 15% 35% 15% 35%;padding: 5px;">    
+        <h1> SignIn Form </h1>
+        <form action="/signin/" method="POST">
+        {% csrf_token %}
+
+            <label for=""><strong>Username :</strong> </label>
+            <input type="text" id="username" name="username" placeholder="Enter Your Username (only letters and numbers)" Required>
+            <br><br>
+            <label for=""><strong>Password :</strong </label>
+            <input type="password" id="pass1" name="pass1" placeholder="Enter Your Password" Required>
+            <br>
+            <br>
+            <button type="submit" class="btn btn-primary ">Login</button>
+        </form>
+    </div>
+{% endblock body %} {% endcomment %}
+{% comment %} {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <title>login</title>
+   <style>
+    * {
+        margin: 0;
+        padding: 0;
+        /* box-sizing: border-box; */
+      }
+      
+      body {
+        background: url('/home/sudh/Aakash/MY PROJECTS/DJANGO PROJECTS/CJ/static/1.jpg');
+      
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        margin-left: auto;
+        margin-right: auto;
+        position: relative;
+      
+      }
+      
+      
+      .login_form {
+        margin: auto;
+        margin-top: 16rem;
+        /* margin-left: 44rem; */
+        border: 3px solid #128ecb;
+        border-radius: 17px;
+        text-align: center;
+        width: 24%;
+        background: #00000054;
+        padding-top: 44px;
+        padding-bottom: 62px;
+      }
+      
+      .header {
+        color: white;
+        font-size: 27px;
+      }
+      
+      .input_btn {
+        background: transparent;
+        margin-bottom: 10%;
+        background: transparent;
+        border: 1px solid white;
+        border-radius: 10px;
+        width: 76%;
+        padding: 4px;
+        color: white;
+        font-size: 20px;
+      }
+      
+      .login_btn {
+        background: #34a34d;
+        color: white;
+        border-radius: 12px;
+        border: 1px solid black;
+        padding: auto;
+        width: 76%;
+        cursor: pointer;
+        height: 43px;
+      }
+      
+      .login_btn:hover {
+        background-color: rgb(57, 202, 57);
+        color: black;
+      }
+      
+      ::placeholder {
+        color: white;
+        text-align: left;
+        font-size: 20px;
+      }
+     
+      
+
+   </style>
+</head>
+
+<body>
+<form action="/signin/" method="POST">
+    {% csrf_token %}
+
+   <div class="login_form" >
+    <h4 class="header"><b>Travel Bharat</b></h4>
+    <p style="color: rgb(247, 248, 250);">________________________</p>
+    <input required type="text" style="margin-top: 6%; text-align: center;" class="input_btn" placeholder="USERNAME" id="username" name="username" autocomplete="OFF"><br>
+    <input required type="password" style="text-align: center;" class="input_btn" placeholder="PASSWORD" id="pass1" name="pass1"><br>
+    <button class="login_btn" type="submit"><b>LOGIN</b></button> 
+   </div>
+</form> {% endcomment %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login System</title>
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          /* box-sizing: border-box; */
+        }
+        
+        body {
+          background: url("{% static '1.jpg' %}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-attachment: fixed;
+          margin-left: auto;
+          margin-right: auto;
+          position: relative;
+        
+        }
+        
+        
+        .login_form {
+          margin: auto;
+          margin-top: 16rem;
+          /* margin-left: 44rem; */
+          background: transparent;
+          border: 3px solid #128ecb;
+          border-radius: 17px;
+          text-align: center;
+          width: 24%;
+          background: #00000054;
+          padding-top: 44px;
+          padding-bottom: 62px;
+        }
+        
+        .header {
+          color: white;
+          font-size: 27px;
+        }
+        
+        .input_btn {
+          background: transparent;
+          margin-bottom: 10%;
+          border: 1px solid white;
+          border-radius: 10px;
+          width: 76%;
+          padding: 4px;
+          color: white;
+          font-size: 20px;
+        }
+        
+        .login_btn {
+          background: #34a34d;
+          color: white;
+          border-radius: 12px;
+          border: 1px solid black;
+          padding: auto;
+          width: 76%;
+          cursor: pointer;
+          height: 43px;
+        }
+        
+        .login_btn:hover {
+          background-color: rgb(57, 202, 57);
+          color: black;
+        }
+        
+        ::placeholder {
+          color:green;
+        }
+       
+        
+  
+     </style>
+  </head>
+
+  <body>
+    <form action="/signin/" method="POST">
+      {% csrf_token %}
+      <div>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <strong>Error!</strong>{{message}}
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div class="login_form">
+        <h4 class="header"><b>CELLULAR JAMMER</b></h4>
+        <p style="color: rgb(247, 248, 250);">________________________</p>
+        <input required type="text" style="margin-top: 6%; text-align: center;" class="input_btn" placeholder=" USERNAME" name="username" ><br>
+        <input required type="password" style="text-align: center;" class="input_btn" placeholder=" PASSWORD" name="password"><br>
+        <button class="login_btn" type="submit"><b>LOGIN</b></button> 
+      </div>
+    </form>
+  
+  </body>
+</html>
+</body>
+</html>
+  
